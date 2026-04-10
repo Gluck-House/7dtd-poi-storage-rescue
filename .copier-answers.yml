@@ -1,6 +1,6 @@
 # Changes here will be overwritten by Copier; DO NOT EDIT MANUALLY.
 _commit: v1.1.3
-_src_path: /home/luke/repos/7dtd-mod-template
+_src_path: https://github.com/Gluck-House/7dtd-mod-template
 artifact_folder: PoiStorageRescue
 copyright_holder: Luke Hann
 copyright_year: '2026'
@@ -13,4 +13,3 @@ mod_description: A 7 Days to Die mod that drops player storage contents into loo
 mod_display_name: POI Storage Rescue
 project_name: PoiStorageRescue
 repo_name: 7dtd-poi-storage-rescue
-

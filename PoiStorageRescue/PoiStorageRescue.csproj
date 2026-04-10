@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <Nullable>enable</Nullable>
+        <BaseOutputPath Condition="'$(BaseOutputPath)' == ''">$(MSBuildProjectDirectory)/build/</BaseOutputPath>
+        <OutputPath Condition="'$(OutputPath)' == ''">$(BaseOutputPath)PoiStorageRescue/</OutputPath>
+        <GameRefsDir Condition="'$(GameRefsDir)' == ''">$(MSBuildProjectDirectory)/../deps</GameRefsDir>
+        <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+        <UseCommonOutputDirectory>true</UseCommonOutputDirectory>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DefineConstants>$(DefineConstants)</DefineConstants>
+        <PlatformTarget>x64</PlatformTarget>
+        <OutputPath Condition="'$(OutputPath)' == '$(BaseOutputPath)PoiStorageRescue/'">$(BaseOutputPath)PoiStorageRescue.Release/</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="0Harmony" Condition="Exists('$(GameRefsDir)/0Harmony.dll')">
+            <HintPath>$(GameRefsDir)/0Harmony.dll</HintPath>
+        </Reference>
+        <Reference Include="Assembly-CSharp" Condition="Exists('$(GameRefsDir)/Assembly-CSharp.dll')">
+            <HintPath>$(GameRefsDir)/Assembly-CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="LogLibrary" Condition="Exists('$(GameRefsDir)/LogLibrary.dll')">
+            <HintPath>$(GameRefsDir)/LogLibrary.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine" Condition="Exists('$(GameRefsDir)/UnityEngine.dll')">
+            <HintPath>$(GameRefsDir)/UnityEngine.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule" Condition="Exists('$(GameRefsDir)/UnityEngine.CoreModule.dll')">
+            <HintPath>$(GameRefsDir)/UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="resources/**/*">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>%(RecursiveDir)%(Filename)%(Extension)</TargetPath>
+        </Content>
+    </ItemGroup>
+
+    <Target Name="ValidateGameReferences" BeforeTargets="ResolveReferences">
+        <Error Condition="!Exists('$(GameRefsDir)/0Harmony.dll')" Text="Missing 7 Days to Die dependency: $(GameRefsDir)/0Harmony.dll" />
+        <Error Condition="!Exists('$(GameRefsDir)/Assembly-CSharp.dll')" Text="Missing 7 Days to Die dependency: $(GameRefsDir)/Assembly-CSharp.dll" />
+        <Error Condition="!Exists('$(GameRefsDir)/LogLibrary.dll')" Text="Missing 7 Days to Die dependency: $(GameRefsDir)/LogLibrary.dll" />
+        <Error Condition="!Exists('$(GameRefsDir)/UnityEngine.dll')" Text="Missing 7 Days to Die dependency: $(GameRefsDir)/UnityEngine.dll" />
+        <Error Condition="!Exists('$(GameRefsDir)/UnityEngine.CoreModule.dll')" Text="Missing 7 Days to Die dependency: $(GameRefsDir)/UnityEngine.CoreModule.dll" />
+    </Target>
+
+</Project>

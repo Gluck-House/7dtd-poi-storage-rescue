@@ -1,0 +1,19 @@
+name: build
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    uses: Gluck-House/7dtd-mod-infra/.github/workflows/reusable-build.yml@main
+    secrets: inherit
+    with:
+      project_name: "PoiStorageRescue"
+      artifact_folder: "PoiStorageRescue"

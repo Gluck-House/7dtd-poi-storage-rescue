@@ -1,0 +1,16 @@
+# Changes here will be overwritten by Copier; DO NOT EDIT MANUALLY.
+_commit: v1.1.3
+_src_path: /home/luke/repos/7dtd-mod-template
+artifact_folder: PoiStorageRescue
+copyright_holder: Luke Hann
+copyright_year: '2026'
+github_owner: Gluck-House
+infra_ref: main
+infra_repo: Gluck-House/7dtd-mod-infra
+mod_author: Luke Hann
+mod_description: A 7 Days to Die mod that drops player storage contents into loot
+    bags when a POI reset would otherwise delete them.
+mod_display_name: POI Storage Rescue
+project_name: PoiStorageRescue
+repo_name: 7dtd-poi-storage-rescue
+

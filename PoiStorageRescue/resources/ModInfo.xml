@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ModInfo>
+    <Name value="PoiStorageRescue"/>
+    <Version value="0.1.5"/>
+    <DisplayName value="POI Storage Rescue"/>
+    <Description
+            value="A 7 Days to Die mod that drops player storage contents into loot bags when a POI reset would otherwise delete them."/>
+    <Author value="Luke Hann"/>
+    <Website value="https://github.com/Gluck-House/7dtd-poi-storage-rescue"/>
+</ModInfo>
